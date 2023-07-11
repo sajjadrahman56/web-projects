@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Text</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="popupText" class="text-center">Click Me</h1>
+    </div>
+
+    <div class="modal fade" id="popupModal" tabindex="-1" role="dialog" aria-labelledby="popupModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="popupModalLabel">How it Works</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>If we insert the driver id it retrive the driver infromation
+                        along with his transection </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var popupText = document.getElementById("popupText");
+            var popupModal = document.getElementById("popupModal");
+
+            popupText.addEventListener("click", function () {
+                popupModal.classList.add("show");
+                popupModal.style.display = "block";
+                document.body.classList.add("modal-open");
+            });
+
+            var closeModal = function () {
+                popupModal.classList.remove("show");
+                popupModal.style.display = "none";
+                document.body.classList.remove("modal-open");
+            };
+
+            var closeButtons = popupModal.querySelectorAll("[data-dismiss='modal']");
+            for (var i = 0; i < closeButtons.length; i++) {
+                closeButtons[i].addEventListener("click", closeModal);
+            }
+
+            popupModal.addEventListener("click", function (event) {
+                if (event.target === popupModal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
