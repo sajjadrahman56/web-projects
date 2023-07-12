@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-4VPsOUdI8CYUvxRql7/6z7tcwXH9vKo8XYLTcaJr6rqd/2Krnb4M2VteDgOmmqTTjuvV23h/19JK75eLfqkzWw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -23,7 +24,7 @@
                     <div class=" m-2 p-5 container bg-dark text-white">
 
 
-                        <form action="atte.php" method="POST" class=" ">
+                        <form action="atte2.php" method="POST" class=" ">
                             <div class="mt-2">
                                 <label for="car_number">Car number :</label>
                                 <input type="text" id="car_number" name="car_number" required>
@@ -51,6 +52,7 @@
                                     Search
                                 </button>
                             </div>
+                             
 
                         </form>
                     </div>
@@ -79,6 +81,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     Search
                                 </button>
+                                <br>
                             </div>
                         </form>
                     </div>
@@ -94,21 +97,60 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+
+    <script>
+
+        function CustomAlert() {
+            this.alert = function (message, title) {
+                document.body.innerHTML = document.body.innerHTML + '<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxhead"></div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>';
+
+                let dialogoverlay = document.getElementById('dialogoverlay');
+                let dialogbox = document.getElementById('dialogbox');
+
+                let winH = window.innerHeight;
+                dialogoverlay.style.height = winH + "px";
+
+                dialogbox.style.top = "100px";
+
+                dialogoverlay.style.display = "block";
+                dialogbox.style.display = "block";
+
+                document.getElementById('dialogboxhead').style.display = 'block';
+
+                if (typeof title === 'undefined') {
+                    document.getElementById('dialogboxhead').style.display = 'none';
+                } else {
+                    document.getElementById('dialogboxhead').innerHTML = '<i class="fa fa-exclamation-circle" aria-hidden="true"></i> ' + title;
+                }
+                document.getElementById('dialogboxbody').innerHTML = message;
+                document.getElementById('dialogboxfoot').innerHTML = '<button class="pure-material-button-contained active" onclick="customAlert.ok()">OK</button>';
+            }
+
+            this.ok = function () {
+                document.getElementById('dialogbox').style.display = "none";
+                document.getElementById('dialogoverlay').style.display = "none";
+            }
+        }
+
+        let customAlert = new CustomAlert();
+    </script>
 
 
- 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var popupText = document.getElementById("popupText");
 
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    var popupText = document.getElementById("popupText");
+            popupText.addEventListener("click", function () {
+                alert("This is the alert message!");
+            });
+        });
 
-                    popupText.addEventListener("click", function () {
-                        alert("This is the alert message!");
-                    });
-                });
-            </script>
+    </script>
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

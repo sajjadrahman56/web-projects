@@ -1,4 +1,19 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  
+<div class="container pt-5">
+  <h1>My First Bootstrap Page</h1>
+ 
+
+  <?php
 // Include the database connection
 require_once 'db.php';
 
@@ -37,9 +52,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else
     {
         // echo "its assigne and find duplicate".$count;
-        
-        echo "<script>alert('data duplicated') </script>";
-        echo "<script>location.href='index.html' </script>";
+        echo "<script>alert('duplicated') </script>";
+        echo "  <div class='alert alert-danger' role='alert'>
+          <h2> Data is duplicated</h2>
+          </div> ";
+      
+        //echo "<script>location.href='index.html' </script>";
          
     }
 }
@@ -49,3 +67,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  
 $conn->close();
 ?>
+</body>
+</html>
