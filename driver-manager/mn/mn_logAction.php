@@ -9,7 +9,7 @@ echo "I am  in the $r_name";
 
 if(($r_name =='admin') && ($r_pass=='admin1'))
 {
-    $_SESSION['name'] = $r_name;
+    $_SESSION['logged_in'] = true;
     echo "<script>location.href='view_page.php'</script>";
     
 } else {

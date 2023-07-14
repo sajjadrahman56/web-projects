@@ -1,4 +1,14 @@
-
+<?php
+ 
+session_start();
+include 'mn_config.php';
+ 
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+   
+  header('Location: login.php');
+  exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +20,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-4VPsOUdI8CYUvxRql7/6z7tcwXH9vKo8XYLTcaJr6rqd/2Krnb4M2VteDgOmmqTTjuvV23h/19JK75eLfqkzWw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-4VPsOUdI8CYUvxRql7/6z7tcwXH9vKo8XYLTcaJr6rqd/2Krnb4M2VteDgOmmqTTjuvV23h/19JK75eLfqkzWw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
@@ -24,86 +32,63 @@
             <div class="container bg-danger mt-5">
                 <div class="container">
                     <h1 class="text-center animated-text">HISTORY</h1>
-                    <h4 class="text-center ">of the Driver</h4>
+                    <h4 class="text-center ">of the Car !!</h4>
 
                     <div class="container  text-white justify-content-center">
                         <form action="retrive_attendance.php" method="GET">
 
-                            <div class="mt-3 text-center">
-                               
-                                <input type="text" id="search_car_number" name="car_number" required>
+                            <div class="mt-3 text-center d-flex justify-content-center">
+                                <div class="row">
+                                    <div class="col-5">CAR MODEL</div>
+                                    <div class="col-5">
+                                        <input type="number" id="search_car_number" name="car_number" required>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mt-2 text-center ">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="mt-4 text-center ">
+                                <button type="submit" class="btn btn-primary col-5">
                                     Search
                                 </button>
                                 <br>
                             </div>
                         </form>
                     </div>
-
-                    <!-- ---------------------------- -->
-
-                    <div class="container">
-                        <h4 id="popupText">more about</h4>
-                    </div>
-
-
-
+                    <h6 class="mt-3">only car_number|model allow.!</h6>
                 </div>
             </div>
 
+            <div class="bg-info">
+                <div class="row justify-content-center">
+                    <div class="col text-start fst-italic">
+                        <p><a href="../index.html" class=" text-dark text-decoration-none zoom-in">home</a></p>
+                    </div>
+
+                    <div class="col text-center fst-italic">
+                        <p><a href="./view_record.php" class=" text-dark text-decoration-none zoom-in">insert record
+                            </a></p>
+                    </div>
+
+                    <div class="col text-end fst-italic">
+                        <p><a href="./view_page.php" class=" text-dark text-decoration-none zoom-in">view page</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 
-    <script>
-
-        function CustomAlert() {
-            this.alert = function (message, title) {
-                document.body.innerHTML = document.body.innerHTML + '<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxhead"></div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>';
-
-                let dialogoverlay = document.getElementById('dialogoverlay');
-                let dialogbox = document.getElementById('dialogbox');
-
-                let winH = window.innerHeight;
-                dialogoverlay.style.height = winH + "px";
-
-                dialogbox.style.top = "100px";
-
-                dialogoverlay.style.display = "block";
-                dialogbox.style.display = "block";
-
-                document.getElementById('dialogboxhead').style.display = 'block';
-
-                if (typeof title === 'undefined') {
-                    document.getElementById('dialogboxhead').style.display = 'none';
-                } else {
-                    document.getElementById('dialogboxhead').innerHTML = '<i class="fa fa-exclamation-circle" aria-hidden="true"></i> ' + title;
-                }
-                document.getElementById('dialogboxbody').innerHTML = message;
-                document.getElementById('dialogboxfoot').innerHTML = '<button class="pure-material-button-contained active" onclick="customAlert.ok()">OK</button>';
-            }
-
-            this.ok = function () {
-                document.getElementById('dialogbox').style.display = "none";
-                document.getElementById('dialogoverlay').style.display = "none";
-            }
+    <style>
+        .zoom-in {
+            transition: font-size 0.5s;
         }
 
-        let customAlert = new CustomAlert();
-    </script>
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var popupText = document.getElementById("popupText");
-
-            popupText.addEventListener("click", function () {
-                alert("This is the alert message!");
-            });
-        });
-
-    </script>
+        .zoom-in:hover {
+            font-size: 1.4em;
+            background-color: white;
+            text-decoration: none;
+        }
+    </style>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
