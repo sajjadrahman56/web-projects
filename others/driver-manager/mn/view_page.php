@@ -1,8 +1,10 @@
 <?php
+ 
 session_start();
 include 'mn_config.php';
-
+ 
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+   
   header('Location: login.php');
   exit;
 }
@@ -48,20 +50,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
       font-size: 1.5rem;
       border-radius: 10%;
     }
-
-    @media (max-width: 768px) { /* Adjust the breakpoint as needed */
-    .custom-btn {
-      padding: 1rem 2rem;
-      font-size: 1rem;
-    }
-  }
-
-  @media (max-width: 576px) { /* Adjust the breakpoint as needed */
-    .custom-btn {
-      padding: 0.75rem 1.5rem;
-      font-size: 0.875rem;
-    }
-  }
   </style>
 </head>
 
@@ -94,34 +82,35 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
   </nav>
 
   <div class="container-fluid" style="margin-top: 8%;">
-    <div class="row">
-      <div class="col-lg-12 col-sm-12">
-        <div class="carousel" style="display: flex;justify-content: center;">
-          <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-bs-target="#myCarousel" data-bs-slide-to="0" class=""></li>
-              <li data-bs-target="#myCarousel" data-bs-slide-to="1" class="active" aria-current="true"></li>
-              <li data-bs-target="#myCarousel" data-bs-slide-to="2" class=""></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item">
-                <img src="../dir.jpeg" alt="Image 1" class="img-fluid">
-              </div>
-              <div class="carousel-item active">
-                <img src="../man.jpeg" alt="Image 2" class="img-fluid">
-              </div>
-              <div class="carousel-item">
-                <img src="../dir.jpeg" alt="Image 3" class="img-fluid">
-              </div>
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <div class="carousel" style="display: flex;justify-content: center;">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-bs-target="#myCarousel" data-bs-slide-to="0" class=""></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="1" class="active" aria-current="true"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="2" class=""></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item">
+              <img src="../dir.jpeg" alt="Image 1" class="img-fluid">
+            </div>
+            <div class="carousel-item active">
+              <img src="../man.jpeg" alt="Image 2" class="img-fluid">
+            </div>
+            <div class="carousel-item">
+              <img src="../dir.jpeg" alt="Image 3" class="img-fluid">
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+  <div class="d-flex justify-content-center align-items-center">
     <div class="container">
+
       <div class="mt-5 container center1 bg-dark text-white">
         <div class="row">
           <div class="col-12">
@@ -131,25 +120,25 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
           </div>
         </div>
       </div>
-  
+
       <div class="container bg-secondary">
         <div class="container center bg-secondary text-dark">
           <div class="row">
-            <div class="col-md-6 col-6 animate__animated animate__fadeInRight">
+            <div class="col-md-6 col-sm-6 col-6 animate__animated animate__fadeInRight">
               <button class="m-1 btn btn-primary custom-btn">
                 <a href="view_record.php" class="text-decoration-none text-dark">Record<br>Put</a>
               </button>
             </div>
-            <div class="col-md-6 col-6 animate__animated animate__fadeInLeftBig">
+            <div class="col-md-6 col-sm-6 col-6 animate__animated animate__fadeInLeftBig">
               <button class="m-1 btn btn-success custom-btn">
-                <a href="view_findrecord.php" class="text-decoration-none text-dark">Find<br>Record</a>
+                <a href="view_findrecord.php " class="text-decoration-none text-dark">Find<br>Record</a>
               </button>
             </div>
           </div>
         </div>
       </div>
-  
-      <div class="container center1 text-dark">
+
+      <div class=" container center1 text-dark">
         <div class="row">
           <div class="col-12">
             <button class="btn btn-secondary btn-lg btn-block">
@@ -158,9 +147,10 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
           </div>
         </div>
       </div>
+
     </div>
   </div>
-  
+
   <footer class="footer mt-auto py-3 bg-secondary text-muted">
     <div class="container text-center">
       <span class="text-muted">© 2023 sajjad rahman.</span>
@@ -169,7 +159,9 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         sajjadrahman17.info@gmail.com</span>
     </div>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
+
